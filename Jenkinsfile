@@ -19,17 +19,34 @@ pipeline {
       }
     }
     stage ("SemGrep") {
-      agent {
-        docker {
-            image 'returntocorp/semgrep'
+      // agent {
+      //   docker {
+      //       image 'returntocorp/semgrep'
+      //   }
+      // }
+      steps {
+        script {
+          docker.image('returntocorp/semgrep').inside("--entrypoint=''") {
+            sh semgrep scan --config=auto --sarif -o semgrep-report.sarif
+          }
         }
       }
-      steps {
-        sh '''
-         semgrep scan --config=auto --sarif -o semgrep-report.sarif
-        '''
-      }
     }
+    stage('Checkov') {
+             steps {
+                 script {
+                     docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
+                         try {
+                             sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --branch master'
+                             junit skipPublishingChecks: true, testResults: 'results.xml'
+                         } catch (err) {
+                             junit skipPublishingChecks: true, testResults: 'results.xml'
+                             throw err
+                         }
+                     }
+                 }
+             }
+         }
   }
 }
 // pipeline{
