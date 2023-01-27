@@ -11,7 +11,292 @@
         "title": "First Diagram",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "diagramType": "STRIDE",
-        "id": 0
+        "id": 0,
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 60,
+                "y": 270
+              },
+              "angle": 0,
+              "id": "12e85f4a-a743-4814-ade5-ff1326b26cb0",
+              "z": 1,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Admin"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 50,
+                "y": 40
+              },
+              "angle": 0,
+              "id": "84859b45-21af-4afc-bb5b-2af8e18e683b",
+              "z": 2,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "User"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 360,
+                "y": 100
+              },
+              "angle": 0,
+              "id": "3a156c97-1329-49d1-9055-d3bb10cdc7f0",
+              "z": 3,
+              "hasOpenThreats": false,
+              "isWebApplication": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "ShopizerUI"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 640,
+                "y": 180
+              },
+              "angle": 0,
+              "id": "6f40ac38-1145-437f-a6e6-22dfd2e5b927",
+              "z": 4,
+              "hasOpenThreats": false,
+              "handlesGoodsOrServices": true,
+              "isWebApplication": true,
+              "handlesCardPayment": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "ShopizerAPI"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 370,
+                "y": 270
+              },
+              "angle": 0,
+              "id": "69e63fc9-4c98-4d5f-95b2-9231cd36ae67",
+              "z": 5,
+              "hasOpenThreats": false,
+              "isWebApplication": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "ShopizerAdmin"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "3a156c97-1329-49d1-9055-d3bb10cdc7f0"
+              },
+              "target": {
+                "id": "6f40ac38-1145-437f-a6e6-22dfd2e5b927"
+              },
+              "vertices": [
+                {
+                  "x": 510,
+                  "y": 120
+                },
+                {
+                  "x": 590,
+                  "y": 140
+                },
+                {
+                  "x": 640,
+                  "y": 170
+                },
+                {
+                  "x": 650,
+                  "y": 190
+                }
+              ],
+              "id": "8fe60225-dd17-46e9-a29d-382d320d33db",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 5",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 6,
+              "hasOpenThreats": true,
+              "protocol": "HTTP",
+              "threats": [
+                {
+                  "ruleId": "13000296-b17d-4b72-9cc4-f5cc33f80e4c",
+                  "title": "Generic information disclosure threat",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "A generic information disclosure threat",
+                  "mitigation": "Mitigation or prevention for the threat",
+                  "threatId": "6104573f-8712-4b83-853e-4528ccc4bf12"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "84859b45-21af-4afc-bb5b-2af8e18e683b"
+              },
+              "target": {
+                "id": "3a156c97-1329-49d1-9055-d3bb10cdc7f0"
+              },
+              "vertices": [
+                {
+                  "x": 300,
+                  "y": 50
+                },
+                {
+                  "x": 350,
+                  "y": 100
+                }
+              ],
+              "id": "d4636b40-bf7c-4a8b-b20b-62e9e1527525",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 6",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 7,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 800,
+                "y": 370
+              },
+              "angle": 0,
+              "id": "7f0901fb-ef6c-499f-8c87-18f7067db3c4",
+              "z": 8,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "store 7"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": "590",
+          "width": 960
+        }
       }
     ],
     "reviewer": "Aaron T"
